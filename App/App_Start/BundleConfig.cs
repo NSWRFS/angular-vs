@@ -13,11 +13,11 @@ namespace App
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/js/angular", "//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js")
+            bundles.Add(new ScriptBundle("~/js/angular", "//ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js")
                 .Include("~/scripts/angular/angular.js"));
 
             bundles.Add(new ScriptBundle("~/js/app").Include(
-                "~/scripts/angular/angular-ui-router.js",
+                "~/scripts/angular/angular-route.js",
                 "~/scripts/app.js",
                 "~/scripts/filters.js",
                 "~/scripts/services.js",

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -21,6 +22,7 @@
     <IISExpressUseClassicPipelineMode />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <TypeScriptToolsVersion>1.0</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -119,64 +121,25 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Images\logo.png" />
+    <Content Include="Scripts\angular\angular-animate.js" />
+    <Content Include="Scripts\angular\angular-animate.min.js" />
     <Content Include="Scripts\angular\angular-cookies.js" />
     <Content Include="Scripts\angular\angular-cookies.min.js" />
+    <Content Include="Scripts\angular\angular-csp.css" />
     <Content Include="Scripts\angular\angular-loader.js" />
     <Content Include="Scripts\angular\angular-loader.min.js" />
-    <Content Include="Scripts\angular\angular-mobile.js" />
-    <Content Include="Scripts\angular\angular-mobile.min.js" />
     <Content Include="Scripts\angular\angular-mocks.js" />
     <Content Include="Scripts\angular\angular-resource.js" />
     <Content Include="Scripts\angular\angular-resource.min.js" />
+    <Content Include="Scripts\angular\angular-route.js" />
+    <Content Include="Scripts\angular\angular-route.min.js" />
     <Content Include="Scripts\angular\angular-sanitize.js" />
     <Content Include="Scripts\angular\angular-sanitize.min.js" />
     <Content Include="Scripts\angular\angular-scenario.js" />
-    <Content Include="Scripts\angular\angular-ui-router.js" />
-    <Content Include="Scripts\angular\angular-ui-router.min.js" />
+    <Content Include="Scripts\angular\angular-touch.js" />
+    <Content Include="Scripts\angular\angular-touch.min.js" />
     <Content Include="Scripts\angular\angular.js" />
     <Content Include="Scripts\angular\angular.min.js" />
-    <TypeScriptCompile Include="Scripts\app.ts" />
-    <Content Include="Scripts\app.js">
-      <DependentUpon>app.ts</DependentUpon>
-    </Content>
-    <Content Include="Scripts\app.min.js">
-      <DependentUpon>app.ts</DependentUpon>
-    </Content>
-    <TypeScriptCompile Include="Scripts\_references.ts" />
-    <TypeScriptCompile Include="Scripts\services.ts" />
-    <TypeScriptCompile Include="Scripts\controllers.ts" />
-    <Content Include="Scripts\controllers.js">
-      <DependentUpon>controllers.ts</DependentUpon>
-    </Content>
-    <TypeScriptCompile Include="Scripts\filters.ts" />
-    <TypeScriptCompile Include="Scripts\directives.ts" />
-    <Content Include="Scripts\controllers.min.js">
-      <DependentUpon>controllers.ts</DependentUpon>
-    </Content>
-    <Content Include="Scripts\directives.js">
-      <DependentUpon>directives.ts</DependentUpon>
-    </Content>
-    <Content Include="Scripts\directives.min.js">
-      <DependentUpon>directives.ts</DependentUpon>
-    </Content>
-    <Content Include="Scripts\filters.js">
-      <DependentUpon>filters.ts</DependentUpon>
-    </Content>
-    <Content Include="Scripts\filters.min.js">
-      <DependentUpon>filters.ts</DependentUpon>
-    </Content>
-    <Content Include="Scripts\services.js">
-      <DependentUpon>services.ts</DependentUpon>
-    </Content>
-    <Content Include="Scripts\services.min.js">
-      <DependentUpon>services.ts</DependentUpon>
-    </Content>
-    <Content Include="Scripts\_references.js">
-      <DependentUpon>_references.ts</DependentUpon>
-    </Content>
-    <Content Include="Scripts\_references.min.js">
-      <DependentUpon>_references.ts</DependentUpon>
-    </Content>
     <Content Include="Scripts\angular\i18n\angular-locale_af-na.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_af-za.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_af.js" />
@@ -209,10 +172,8 @@
     <Content Include="Scripts\angular\i18n\angular-locale_ca-ad.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_ca-es.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_ca.js" />
-    <Content Include="Scripts\angular\i18n\angular-locale_chr.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_cs-cz.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_cs.js" />
-    <Content Include="Scripts\angular\i18n\angular-locale_cy.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_da-dk.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_da.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_de-at.js" />
@@ -224,7 +185,6 @@
     <Content Include="Scripts\angular\i18n\angular-locale_de.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_el-cy.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_el-gr.js" />
-    <Content Include="Scripts\angular\i18n\angular-locale_el-polyton.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_el.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_en-as.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_en-au.js" />
@@ -264,7 +224,6 @@
     <Content Include="Scripts\angular\i18n\angular-locale_en-vi.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_en-za.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_en-zw.js" />
-    <Content Include="Scripts\angular\i18n\angular-locale_en-zz.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_en.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_es-419.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_es-ar.js" />
@@ -342,7 +301,6 @@
     <Content Include="Scripts\angular\i18n\angular-locale_gsw.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_gu-in.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_gu.js" />
-    <Content Include="Scripts\angular\i18n\angular-locale_haw.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_he-il.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_he.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_hi-in.js" />
@@ -376,7 +334,6 @@
     <Content Include="Scripts\angular\i18n\angular-locale_lv.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_ml-in.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_ml.js" />
-    <Content Include="Scripts\angular\i18n\angular-locale_mo.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_mr-in.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_mr.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_ms-bn.js" />
@@ -423,7 +380,6 @@
     <Content Include="Scripts\angular\i18n\angular-locale_sr-latn-me.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_sr-latn-rs.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_sr-latn.js" />
-    <Content Include="Scripts\angular\i18n\angular-locale_sr-rs.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_sr.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_sv-fi.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_sv-se.js" />
@@ -438,7 +394,6 @@
     <Content Include="Scripts\angular\i18n\angular-locale_te.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_th-th.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_th.js" />
-    <Content Include="Scripts\angular\i18n\angular-locale_tl-ph.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_tl.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_tr-tr.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_tr.js" />
@@ -464,6 +419,57 @@
     <Content Include="Scripts\angular\i18n\angular-locale_zh.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\angular\i18n\angular-locale_zu.js" />
+    <Content Include="Scripts\app.js">
+      <DependentUpon>app.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\app.min.js">
+      <DependentUpon>app.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controllers.js">
+      <DependentUpon>controllers.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controllers.min.js">
+      <DependentUpon>controllers.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\controllers.min.js.map">
+      <DependentUpon>controllers.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\directives.js">
+      <DependentUpon>directives.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\directives.min.js">
+      <DependentUpon>directives.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\filters.js">
+      <DependentUpon>filters.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\filters.min.js">
+      <DependentUpon>filters.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\services.js">
+      <DependentUpon>services.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\services.min.js">
+      <DependentUpon>services.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\app.min.js.map">
+      <DependentUpon>app.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\directives.min.js.map">
+      <DependentUpon>directives.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\filters.min.js.map">
+      <DependentUpon>filters.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\services.min.js.map">
+      <DependentUpon>services.min.js</DependentUpon>
+    </Content>
+    <None Include="Scripts\_references.js">
+      <DependentUpon>_references.ts</DependentUpon>
+    </None>
+    <Content Include="Scripts\_references.min.js">
+      <DependentUpon>_references.ts</DependentUpon>
+    </Content>
     <Content Include="Styles\app.css">
       <DependentUpon>app.less</DependentUpon>
     </Content>
@@ -492,6 +498,19 @@
     <Content Include="Styles\app.less" />
     <Content Include="Views\View1.cshtml" />
     <Content Include="Views\View2.cshtml" />
+    <Content Include="Scripts\angular\version.json" />
+    <Content Include="Scripts\angular\errors.json" />
+    <Content Include="Scripts\angular\angular-touch.min.js.map" />
+    <Content Include="Scripts\angular\angular-sanitize.min.js.map" />
+    <Content Include="Scripts\angular\angular-route.min.js.map" />
+    <Content Include="Scripts\angular\angular-resource.min.js.map" />
+    <Content Include="Scripts\angular\angular-loader.min.js.map" />
+    <Content Include="Scripts\angular\angular-cookies.min.js.map" />
+    <Content Include="Scripts\angular\angular-animate.min.js.map" />
+    <Content Include="Scripts\angular\angular.min.js.map" />
+    <Content Include="Scripts\_references.min.js.map">
+      <DependentUpon>_references.min.js</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -499,12 +518,20 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\app.ts" />
+    <TypeScriptCompile Include="Scripts\controllers.ts" />
+    <TypeScriptCompile Include="Scripts\directives.ts" />
+    <TypeScriptCompile Include="Scripts\filters.ts" />
+    <TypeScriptCompile Include="Scripts\services.ts" />
+    <TypeScriptCompile Include="Scripts\_references.ts" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>
