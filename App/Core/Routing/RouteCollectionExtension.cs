@@ -1,13 +1,7 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="RouteCollectionExtension.cs" company="KriaSoft LLC">
-//   Copyright © 2013 Konstantin Tarkus, KriaSoft LLC. See LICENSE.txt
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
+﻿using System.Web.Routing;
 
 namespace App.Routing
 {
-    using System.Web.Routing;
-
     public static class RouteCollectionExtension
     {
         /// <summary>

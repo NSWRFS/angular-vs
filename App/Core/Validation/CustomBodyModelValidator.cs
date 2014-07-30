@@ -1,16 +1,10 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="CustomBodyModelValidator.cs" company="KriaSoft LLC">
-//   Copyright © 2013 Konstantin Tarkus, KriaSoft LLC. See LICENSE.txt
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
+﻿using System;
+using System.Web.Http.Controllers;
+using System.Web.Http.Metadata;
+using System.Web.Http.Validation;
 
 namespace App.Validation
 {
-    using System;
-    using System.Web.Http.Controllers;
-    using System.Web.Http.Metadata;
-    using System.Web.Http.Validation;
-
     public class CustomBodyModelValidator : IBodyModelValidator
     {
         private readonly IBodyModelValidator validator;

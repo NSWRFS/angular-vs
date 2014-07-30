@@ -1,15 +1,9 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="WebPagesRouteHandler.cs" company="KriaSoft LLC">
-//   Copyright © 2013 Konstantin Tarkus, KriaSoft LLC. See LICENSE.txt
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
+﻿using System.Web;
+using System.Web.Routing;
+using System.Web.WebPages;
 
 namespace App.Routing
 {
-    using System.Web;
-    using System.Web.Routing;
-    using System.Web.WebPages;
-
     public class WebPagesRouteHandler : IRouteHandler
     {
         private readonly string virtualPath;
@@ -38,7 +32,7 @@ namespace App.Routing
         {
             var substitutedVirtualPath = this.GetSubstitutedVirtualPath(requestContext);
             var index = substitutedVirtualPath.IndexOf('?');
-            
+
             if (index != -1)
             {
                 substitutedVirtualPath = substitutedVirtualPath.Substring(0, index);
@@ -51,7 +45,7 @@ namespace App.Routing
         public string GetSubstitutedVirtualPath(RequestContext requestContext)
         {
             var virtPath = this.RouteVirtualPath.GetVirtualPath(requestContext, requestContext.RouteData.Values);
-            
+
             if (virtPath == null)
             {
                 return this.virtualPath;

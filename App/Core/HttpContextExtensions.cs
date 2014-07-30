@@ -1,14 +1,8 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="HttpContextExtensions.cs" company="KriaSoft LLC">
-//   Copyright © 2013 Konstantin Tarkus, KriaSoft LLC. See LICENSE.txt
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
+﻿using System.Web;
+using System.Web.Routing;
 
 namespace App
 {
-    using System.Web;
-    using System.Web.Routing;
-
     public static class HttpContextExtensions
     {
         private const string RouteKey = "__Route";
@@ -21,7 +15,7 @@ namespace App
         internal static string GetRouteValue(this HttpContextBase context, string key)
         {
             var route = context.Items[RouteKey] as RouteValueDictionary;
-            
+
             if (route != null)
             {
                 var routeValue = route[key];

@@ -1,17 +1,10 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="WebApiConfig.cs" company="KriaSoft LLC">
-//   Copyright © 2013 Konstantin Tarkus, KriaSoft LLC. See LICENSE.txt
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
+﻿using System.Web.Http;
+using System.Web.Http.Validation;
+using App.Validation;
+using Newtonsoft.Json.Serialization;
 
 namespace App
 {
-    using System.Web.Http;
-    using System.Web.Http.Validation;
-
-    using App.Validation;
-    using Newtonsoft.Json.Serialization;
-
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
